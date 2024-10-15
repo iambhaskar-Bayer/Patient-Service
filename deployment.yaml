@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: squad-2-react-appointment
+  name: squad-3-react-appointment
   labels:
-    app: squad-2-react-appointment
+    app: squad-3-react-appointment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: squad-2-react-appointment
+      app: squad-3-react-appointment
   template:
     metadata:
       labels:
-        app: squad-2-react-appointment
+        app: squad-3-react-appointment
     spec:
       containers:
-        - name: squad-2-react-appointment
-          image: 326319537952.dkr.ecr.us-east-1.amazonaws.com/squad2-ecr
+        - name: squad-3-react-appointment
+          image: 149536480774.dkr.ecr.ap-south-1.amazonaws.com/ecr-repo
           ports:
             - containerPort: 3000  # Adjust based on your app's listening port        
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: squad-2-react-appointment
+  name: squad-3-react-appointment
 spec:
   type: LoadBalancer
   selector:
-    app: squad-2-react-appointment
+    app: squad-3-react-appointment
   ports:
     - port: 3000       # Port that the service will expose
       targetPort: 3000   # Port on the container
